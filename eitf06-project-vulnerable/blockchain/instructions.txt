@@ -1,0 +1,14 @@
+# Create wallet
+./cli wallet create -walletname "webshop"
+
+# Start blockchain server
+./cli server start -nodeport 3000 -apiport 8081 -walletname "webshop" -ismining=true
+
+# Get wallet address
+./cli server getwalletaddress -apiport 8081
+
+# Get wallet balance
+./cli server getwalletbalance -apiport 8081
+
+# Send transaction
+./cli server sendtransaction --apiport 8082 --to "1J4UxPUUrrKpAjheGgWMaFg17GeGMdEPj9" -amount 100000

@@ -1,0 +1,4 @@
+Abusing the username prinout.
+
+1. Create a new account with the name "<script>alert(`HACKED`)</script>"
+2. Login with the account and observe the popup window

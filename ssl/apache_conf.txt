@@ -1,0 +1,31 @@
+Included in this directory are the webshop.crt (self-signed certificate) and webshop.key (private key signing the certificate) files necessary to configure XAMPP's Apache web server to use an encrypted SSL connection - that is, HTTPS over port 443.
+Additionally, there are 'httpd-vhosts.conf' and 'httpd-ssl.conf' files to configure Apache web server to use the SSL certificate for our webshop.
+To configure your installation of XAMPP to use these files, follow the steps below.
+
+SET UP SSL FILES
+Navigate to your installation of XAMPP by starting the configuration manager and choosing 'Open Application Folder'
+Create the directories ./etc/ssl.crt and ./etc/ssl.key if they do not already exist
+Move the included certificate/key into their corresponding directories (so you should end up with ./etc/ssl.key/webshop.key and ./etc/ssl.crt/webshop.crt)
+
+CONFIGURING VIRTUAL HOSTS
+We need to configure virtual hosts so we can type webshop.localhost into our browser to find our website while still being able to type localhost to find the XAMPP browser configuration page.
+To do this, move the included 'httpd-vhosts.conf' file into the './etc/extra' directory.
+Additionally, we need to enable virtual hosts by editing the 'httpd.conf' file in the './etc' directory using your favorite text editor. Within the file, find the following line and uncomment it by removing the # symbol: "Include etc/extra/httpd-vhosts.conf"
+
+You may also need to configure your computer's own virtual hosts to map webshop.localhost to its local IP address. To do this (in linux at least), open your '/etc/hosts' (NOTE: not the etc subdirectory in the XAMPP installation, the subdirectory of root /) file and add the following lines:
+127.0.0.1	xampp
+127.0.0.1	webshop.localhost
+
+Restart XAMPP/Apache from the manager and you should be able to type webshop.localhost into your browser and arrive at the webshop project root directory.
+
+CONFIGURING SSL CERTIFICATE
+Move the included 'httpd-ssl.conf' file into the './etc/extra' directory, overwriting if necessary.
+Edit the file and ensure that all file and directory paths are correct for your machine.
+
+Restart XAMPP (Apache web server and MySQL) from the manager.
+
+
+That should be it! You should be able to type webshop.localhost into your browser and see a certificate self-signed error. Simply allow it and you should be at the project root!
+
+Let me know if there are any questions or things I forgot to include.
+

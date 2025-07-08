@@ -1,0 +1,4 @@
+1. Go to the login page
+2. Enter the following and a random password
+- e'; DROP TABLE IF EXISTS attack'
+3. Go into db and check that the table "attack" was dropped.
